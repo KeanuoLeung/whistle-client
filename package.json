@@ -7,55 +7,31 @@
   "scripts": {
     "build:win": "electron-builder --win --x64",
     "build:mac": "electron-builder --mac",
-    "release:win": "electron-builder --win --x64 -p always",
+    "release:win": "electron-builder",
     "release:mac": "electron-builder --mac -p always",
     "lint": "eslint --fix lib",
     "lintfix": "npm run lint",
     "start": "electron ./lib"
   },
   "build": {
-    "productName": "Whistle",
-    "appId": "whistle.client",
-    "asar": false,
-    "artifactName": "${productName}-v${version}-${os}-${arch}.${ext}",
-    "copyright": "avenwu",
-    "compression": "normal",
-    "extends": null,
-    "publish": [
-      {
-        "provider": "github",
-        "owner": "avwo",
-        "repo": "whistle-client",
-        "releaseType": "draft"
-      }
-    ],
-    "protocols": [
-      {
-        "name": "whistle",
-        "schemes": [
-          "whistle"
-        ]
-      }
-    ],
-    "mac": {
-      "icon": "public/whistle.png",
-      "target": {
-        "target": "dmg",
-        "arch": [
-          "arm64",
-          "x64"
-        ]
-      }
-    },
+    "appId": "com.imaxue.app",
+    "productName": "dice",
     "win": {
-      "icon": "public/whistle.png",
-      "target": "nsis"
+      "target": [
+        "portable"
+      ],
+      "icon": "dice.ico"
     },
     "nsis": {
-      "oneClick": true,
+      "oneClick": false,
       "perMachine": true,
-      "runAfterFinish": true,
-      "include": "installer.nsh"
+      "allowToChangeInstallationDirectory": true
+    },
+    "portable": {
+      "artifactName": "dice.exe"
+    },
+    "electronDownload":{
+      "mirror":"https://npm.taobao.org/mirrors/electron/"
     }
   },
   "devDependencies": {

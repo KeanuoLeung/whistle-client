@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+        -webkit-user-select: none;
+        -webkit-app-region: drag;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <title>dice</title>
+  </head>
+  <body style="-webkit-app-region: drag">
+    <h1>服务运行中...</h1>
+    <h1 id="ipaddress"></h1>
+    <script src="./renderer.js"></script>
+  </body>
+</html>
